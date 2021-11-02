@@ -2,13 +2,14 @@ extends Spatial
 
 var pre_bug_1 = preload("res://Scenes/Bugs/Bug1.tscn")
 var pre_bug_2 = preload("res://Scenes/Bugs/Bug2.tscn")
+var pre_bug_3 = preload("res://Scenes/Bugs/Bug3.tscn")
 
 var bugSpawList = Array()
 var rodadaCont = 0
 
-var rodadas = [[1,1,1,1,1,1,1,1,1,1],
+var rodadas = [[1,1,1,2,2,2,1,1,1,3],
 				[1,1,1,2,2,2,2,1,1,1],
-				[1,1,1,2,2,2,3,1,2,1]]
+				[1,1,1,2,3,2,3,1,2,1]]
 				
 func _ready():
 	rodada()
@@ -23,6 +24,7 @@ func rodada():
 		match i:
 			1: new_bug = pre_bug_1.instance()
 			2: new_bug = pre_bug_2.instance()
+			3: new_bug = pre_bug_3.instance()
 		
 		bugSpawList.append(new_bug)
 	$SpawnTime.start()

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Plastic007_1K_NormalGL.jpg-229c05cc61728308bb870f591c17f4ab.stex"
+path="res://.import/Plastic007_1K_NormalDX.jpg-3498089126bd13a440a4ef203d3a01c3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texturas/Plastic007_1K_NormalGL.jpg"
-dest_files=[ "res://.import/Plastic007_1K_NormalGL.jpg-229c05cc61728308bb870f591c17f4ab.stex" ]
+source_file="res://Texturas/Plastic 007/Plastic007_1K_NormalDX.jpg"
+dest_files=[ "res://.import/Plastic007_1K_NormalDX.jpg-3498089126bd13a440a4ef203d3a01c3.stex" ]
 
 [params]
 

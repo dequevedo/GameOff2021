@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Plastic007_1K_Displacement.jpg-896ff56888274c7c80e0bdb87390682d.stex"
+path="res://.import/Plastic007_1K_NormalGL.jpg-7b0e40bce22e018fadea5e665cc4bb7f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texturas/Plastic007_1K_Displacement.jpg"
-dest_files=[ "res://.import/Plastic007_1K_Displacement.jpg-896ff56888274c7c80e0bdb87390682d.stex" ]
+source_file="res://Texturas/Plastic 007/Plastic007_1K_NormalGL.jpg"
+dest_files=[ "res://.import/Plastic007_1K_NormalGL.jpg-7b0e40bce22e018fadea5e665cc4bb7f.stex" ]
 
 [params]
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Plastic007_1K_Color.jpg-bee10d976ee0a4dd8fadde4a5a48678f.s3tc.stex"
-path.etc2="res://.import/Plastic007_1K_Color.jpg-bee10d976ee0a4dd8fadde4a5a48678f.etc2.stex"
+path.s3tc="res://.import/Plastic007_1K_Displacement.jpg-1ba3e8b56e82f354707cc29acc066a74.s3tc.stex"
+path.etc2="res://.import/Plastic007_1K_Displacement.jpg-1ba3e8b56e82f354707cc29acc066a74.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Texturas/Plastic007_1K_Color.jpg"
-dest_files=[ "res://.import/Plastic007_1K_Color.jpg-bee10d976ee0a4dd8fadde4a5a48678f.s3tc.stex", "res://.import/Plastic007_1K_Color.jpg-bee10d976ee0a4dd8fadde4a5a48678f.etc2.stex" ]
+source_file="res://Texturas/Plastic 007/Plastic007_1K_Displacement.jpg"
+dest_files=[ "res://.import/Plastic007_1K_Displacement.jpg-1ba3e8b56e82f354707cc29acc066a74.s3tc.stex", "res://.import/Plastic007_1K_Displacement.jpg-1ba3e8b56e82f354707cc29acc066a74.etc2.stex" ]
 
 [params]
 
