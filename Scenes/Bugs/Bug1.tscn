@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Bug1.gd" type="Script" id=1]
+
+[node name="Bug1" type="PathFollow"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, -1 )
+script = ExtResource( 1 )
+
+[node name="CSGBox" type="CSGBox" parent="."]
+width = 1.0
+height = 1.0
+depth = 1.0

@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Bug2.gd" type="Script" id=2]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 1, 1, 1 )
+
+[sub_resource type="StreamTexture" id=3]
+flags = 23
+load_path = "res://.import/Plastic007_1K_Color.jpg-6c791c933893a8aa73ddc07a9a000453.s3tc.stex"
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = SubResource( 3 )
+
+[node name="Bug2" type="PathFollow"]
+script = ExtResource( 2 )
+
+[node name="CSGMesh" type="CSGMesh" parent="."]
+mesh = SubResource( 1 )
+material = SubResource( 2 )
