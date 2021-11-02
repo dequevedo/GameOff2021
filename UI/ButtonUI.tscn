@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI/Fonts/Gluten/GlutonDynamic.tres" type="DynamicFont" id=1]
+
+[node name="Button" type="Button"]
+margin_right = 258.888
+margin_bottom = 68.7755
+focus_mode = 0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.784314, 0.784314, 0.784314, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 0.776471, 0.294118, 1 )
+enabled_focus_mode = 0
+text = "Começar"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
