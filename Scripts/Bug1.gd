@@ -16,3 +16,14 @@ func _process(delta):
 	
 	if(vida <=0):
 		queue_free()
+
+func hit(dano):
+	vida = vida - dano
+
+func _on_Area_area_entered(area):
+	if area.is_in_group("BULET"):
+		if area.targuet == get_node("."):
+			hit(area.dano)
+			area.queue_free()
+	
+	pass # Replace with function body.
