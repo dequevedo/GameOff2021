@@ -18,6 +18,9 @@ func _ready():
 
 
 func rodada():
+	
+	$Control/Label.text = str("Roud ",rodadaCont+1 )
+	$Control/AnimationPlayer.play("sumir")
 	for i in rodadas[rodadaCont]:
 		var new_bug 
 		
@@ -38,6 +41,7 @@ func rodada():
 	
 
 func _on_Rodada_timeout():
+	
 	rodada()
 	pass
 
