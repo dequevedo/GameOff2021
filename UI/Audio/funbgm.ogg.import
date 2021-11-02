@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/funbgm.ogg-e2d11739c3233d6a8688647f25be46d6.oggstr"
+
+[deps]
+
+source_file="res://UI/Audio/funbgm.ogg"
+dest_files=[ "res://.import/funbgm.ogg-e2d11739c3233d6a8688647f25be46d6.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

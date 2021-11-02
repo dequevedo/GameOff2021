@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/amb_forest.mp3-ceb8f14ffb3d3d914091553338c93b81.mp3str"
+
+[deps]
+
+source_file="res://UI/Audio/amb_forest.mp3"
+dest_files=[ "res://.import/amb_forest.mp3-ceb8f14ffb3d3d914091553338c93b81.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

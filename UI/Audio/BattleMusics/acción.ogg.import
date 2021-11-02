@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/acción.ogg-2db8ed55e209228ba4f4a8916c0b23f3.oggstr"
+
+[deps]
+
+source_file="res://UI/Audio/BattleMusics/acción.ogg"
+dest_files=[ "res://.import/acción.ogg-2db8ed55e209228ba4f4a8916c0b23f3.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

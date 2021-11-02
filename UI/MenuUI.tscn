@@ -1,22 +1,25 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://UI/Fonts/Bubblegum_Sans/BubblegumDynamic.tres" type="DynamicFont" id=1]
 [ext_resource path="res://UI/ButtonUI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/MenuUI.gd" type="Script" id=3]
+[ext_resource path="res://UI/Audio/Auye.tres" type="AudioStream" id=4]
 
 [node name="MenuUI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 2.0
 margin_bottom = 2.0
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="MenuButtons" type="VBoxContainer" parent="."]
-margin_left = 162.0
-margin_top = 570.0
-margin_right = 485.0
-margin_bottom = 1056.0
+margin_left = 180.354
+margin_top = 623.19
+margin_right = 503.354
+margin_bottom = 1109.19
 grow_horizontal = 0
 grow_vertical = 0
 custom_constants/separation = 30
@@ -27,6 +30,9 @@ __meta__ = {
 [node name="StartButton" parent="MenuButtons" instance=ExtResource( 2 )]
 margin_right = 323.0
 margin_bottom = 49.0
+
+[node name="Oh-yeah" type="AudioStreamPlayer" parent="MenuButtons/StartButton"]
+stream = ExtResource( 4 )
 
 [node name="OptionsButton" parent="MenuButtons" instance=ExtResource( 2 )]
 margin_top = 79.0
@@ -59,3 +65,6 @@ uppercase = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[connection signal="pressed" from="MenuButtons/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="finished" from="MenuButtons/StartButton/Oh-yeah" to="." method="_on_Ohyeah_finished"]
