@@ -13,11 +13,11 @@ func _process(delta):
 
 func _on_Shot_timeout():
 	var bulet_ = bulet.instance()
-	bulet_.global_transform.origin = $corpo/base/cabeca/Position3D.global_transform.origin
+	bulet_.global_transform.origin = $Bulet_position.global_transform.origin
 	bulet_.targuet = get_parent().get_child(0).get_child(0)
 
 	get_parent().add_child(bulet_)
-	#$corpo/base/cabeca.set_radius($corpo/base/cabeca.rotation_degrees.angle_to(bulet_.targuet.translation)+45)
+	#$Spatial/Formiga_01.set_radius($Spatial/Formiga_01.rotation_degrees.angle_to(bulet_.targuet.translation)+45)
 		
 	
 	pass 

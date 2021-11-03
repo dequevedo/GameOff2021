@@ -12,10 +12,11 @@ radius = 0.1
 [node name="Bulet" type="Area" groups=[
 "BULET",
 ]]
+transform = Transform( 30.6432, 0, 0, 0, 30.6432, 0, 0, 0, 30.6432, 0, 0, 0 )
 script = ExtResource( 2 )
 
 [node name="CSGSphere" type="CSGSphere" parent="."]
-radius = 0.1
+radius = 0.3
 material = SubResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
