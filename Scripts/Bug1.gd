@@ -13,9 +13,9 @@ func _process(delta):
 	if(pos >= 0.99):
 		queue_free()
 	
-	
-	if(vida <=0):
-		queue_free()
+	if(vida <=0 and !$BugDeathSound.playing):
+		visible = false
+		$BugDeathSound.play()
 
 func hit(dano):
 	vida = vida - dano
@@ -26,4 +26,8 @@ func _on_Area_area_entered(area):
 			hit(area.dano)
 			area.queue_free()
 	
+	pass # Replace with function body.
+
+func _on_BugDeathSound_finished():
+	queue_free()
 	pass # Replace with function body.

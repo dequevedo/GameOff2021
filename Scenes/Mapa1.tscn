@@ -1,7 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Mapa1.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Armas/Formiga1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/PauseMenu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://SFX/Round/round.ogg" type="AudioStream" id=4]
+[ext_resource path="res://SFX/Round/mission_completed.ogg" type="AudioStream" id=5]
+[ext_resource path="res://UI/ButtonUI.tscn" type="PackedScene" id=6]
+[ext_resource path="res://UI/Fonts/Bubblegum_Sans/BubblegumDynamic.tres" type="DynamicFont" id=7]
 
 [sub_resource type="Curve3D" id=1]
 _data = {
@@ -77,20 +82,8 @@ transform = Transform( 10.85, 0, 0, 0, 10.85, 0, 0, 0, 10.85, 61, 0, -26.5 )
 transform = Transform( 10.85, 0, 0, 0, 10.85, 0, 0, 0, 10.85, 60.3, 0, -14.8 )
 
 [node name="Interface" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Round_titulo" type="Label" parent="Interface"]
-modulate = Color( 1, 1, 1, 0 )
-margin_left = 643.455
-margin_top = 62.2724
-margin_right = 699.455
-margin_bottom = 76.2724
-rect_scale = Vector2( 8.56953, 6.87517 )
-text = "Round 1"
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -115,5 +108,49 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="PauseMenu" parent="Interface" instance=ExtResource( 3 )]
+pause_mode = 2
+
+[node name="FinishOverlay" type="ColorRect" parent="Interface"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" parent="Interface/FinishOverlay" instance=ExtResource( 6 )]
+margin_left = 818.555
+margin_top = 659.075
+margin_right = 1077.44
+margin_bottom = 727.85
+text = "Continuar"
+
+[node name="Round_titulo" type="Label" parent="Interface"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -149.0
+margin_bottom = 85.0
+custom_fonts/font = ExtResource( 7 )
+text = "Round 1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RoundAudio" type="AudioStreamPlayer" parent="Interface"]
+stream = ExtResource( 4 )
+
+[node name="RoundNumberAudio" type="AudioStreamPlayer" parent="Interface"]
+stream = ExtResource( 4 )
+
+[node name="MissionCompletedAudio" type="AudioStreamPlayer" parent="Interface"]
+stream = ExtResource( 5 )
+
 [connection signal="timeout" from="SpawnTime" to="." method="_on_SpawnTime_timeout"]
 [connection signal="timeout" from="Rodada" to="." method="_on_Rodada_timeout"]
+[connection signal="pressed" from="Interface/FinishOverlay/Button" to="." method="_on_Button_pressed"]
+[connection signal="finished" from="Interface/RoundAudio" to="." method="_on_RoundAudio_finished"]

@@ -20,6 +20,7 @@ func _input(event):
 
 func togglePause():
 	get_node("ButtonsPause").visible = !get_node("ButtonsPause").visible
+	get_tree().paused = !get_tree().paused
 	pass
 
 

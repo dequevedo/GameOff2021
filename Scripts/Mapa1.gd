@@ -3,24 +3,41 @@ extends Spatial
 var pre_bug_1 = preload("res://Scenes/Bugs/Bug1.tscn")
 var pre_bug_2 = preload("res://Scenes/Bugs/Bug2.tscn")
 var pre_bug_3 = preload("res://Scenes/Bugs/Bug3.tscn")
+var roundAudios = [
+	preload(str("res://SFX/Round/1.ogg")),
+	preload(str("res://SFX/Round/2.ogg")),
+	preload(str("res://SFX/Round/final_round.ogg"))
+]
 
-var bugSpawList = Array()
+var bugSpawnList = Array()
 var rodadaCont = 0
 
-var rodadas = [[1,1,1,2,2,2,1,1,1,3],
-				[1,1,1,2,2,2,2,1,1,1],
-				[1,1,1,2,3,2,3,1,2,1]]
-				
+var rodadas = [
+	[1,1,1,2,2,2,1,1,1,3],
+	[1,1,1,2,2,2,2,1,1,1],
+	[1,1,1,2,3,2,3,1,2,1]
+]
+
 func _ready():
 	rodada()
 	pass
 
-
-
 func rodada():
+	if rodadaCont > rodadas.size()-1 :
+		print('end')
+		rodadaCont +=1 
+		$Rodada.stop()
+		missionCompleted()
+		return
 	
-	$Interface/Round_titulo.text = str("Roud ",rodadaCont+1 )
+	if(rodadaCont == rodadas.size()-1):
+		$Interface/Round_titulo.text = str("Final Round")
+	else: 
+		$Interface/Round_titulo.text = str("Round ", rodadaCont+1)
+	
 	$Interface/AnimationPlayer.play("sumir")
+	playRoundAudio(rodadaCont+1)
+		
 	for i in rodadas[rodadaCont]:
 		var new_bug 
 		
@@ -29,26 +46,48 @@ func rodada():
 			2: new_bug = pre_bug_2.instance()
 			3: new_bug = pre_bug_3.instance()
 		
-		bugSpawList.append(new_bug)
+		bugSpawnList.append(new_bug)
 	$SpawnTime.start()
 	
-	if rodadaCont < rodadas.size()-1:
+	if rodadaCont <= rodadas.size()-1:
 		rodadaCont +=1 
 		$Rodada.start()
-	else :
-		print('end')
-		$Rodada.stop()
-	
 
 func _on_Rodada_timeout():
-	
 	rodada()
 	pass
 
 
 func _on_SpawnTime_timeout():
-	$Caminho.add_child(bugSpawList[0])
-	bugSpawList.remove(0)
-	if(bugSpawList.size()>0):
+	$Caminho.add_child(bugSpawnList[0])
+	bugSpawnList.remove(0)
+	if(bugSpawnList.size()>0):
 		$SpawnTime.start()
 	pass
+
+func playRoundAudio(actualRound):
+	if(actualRound == rodadas.size()):
+		$Interface/RoundAudio.volume_db = -50
+	else: 
+		$Interface/RoundAudio.volume_db = 0
+	$Interface/RoundAudio.play()
+	pass
+
+func _on_RoundAudio_finished():
+	var RoundNumberAudio = $Interface/RoundNumberAudio
+	RoundNumberAudio.stream = roundAudios[rodadaCont-1]
+	RoundNumberAudio.play()
+	pass
+	
+func missionCompleted():
+	print('missioncompleted')
+	$Interface/Round_titulo.text = str("Mission Completed! ")
+	$Interface/Round_titulo.modulate = Color(1, 1, 1, 1)
+	$Interface/MissionCompletedAudio.play()
+	$Interface/FinishOverlay.visible = true
+	pass
+
+
+func _on_Button_pressed():
+	get_tree().change_scene("res://UI/MainMenu.tscn")
+	pass # Replace with function body.

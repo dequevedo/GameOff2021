@@ -113,15 +113,19 @@ text = "Menu Principal"
 
 [node name="BattleTheme1" type="AudioStreamPlayer" parent="BattleThemes"]
 stream = ExtResource( 6 )
+volume_db = -5.0
 
 [node name="BattleTheme2" type="AudioStreamPlayer" parent="BattleThemes"]
 stream = ExtResource( 9 )
+volume_db = -5.0
 
 [node name="BattleTheme3" type="AudioStreamPlayer" parent="BattleThemes"]
 stream = ExtResource( 8 )
+volume_db = -5.0
 
 [node name="BattleTheme4" type="AudioStreamPlayer" parent="BattleThemes"]
 stream = ExtResource( 7 )
+volume_db = 2.0
 
 [connection signal="pressed" from="ButtonsPause/MenuButtons/ContinueButton" to="." method="_on_ContinueButton_pressed"]
 [connection signal="pressed" from="ButtonsPause/MenuButtons/ExitButton" to="." method="_on_ExitButton_pressed"]

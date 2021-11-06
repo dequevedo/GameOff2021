@@ -12,12 +12,13 @@ func _process(delta):
 
 
 func _on_Shot_timeout():
-	var bulet_ = bulet.instance()
-	bulet_.global_transform.origin = $Bulet_position.global_transform.origin
-	bulet_.targuet = get_parent().get_child(0).get_child(0)
+	var caminhoChild = get_parent().get_child(0).get_child(0)
+	if get_parent().get_child(0).get_child(0):
+		var bulet_ = bulet.instance()
+		bulet_.global_transform.origin = $Bulet_position.global_transform.origin
+		bulet_.targuet = caminhoChild
 
-	get_parent().add_child(bulet_)
-	#$Spatial/Formiga_01.set_radius($Spatial/Formiga_01.rotation_degrees.angle_to(bulet_.targuet.translation)+45)
-		
-	
+		get_parent().add_child(bulet_)
+		#$Spatial/Formiga_01.set_radius($Spatial/Formiga_01.rotation_degrees.angle_to(bulet_.targuet.translation)+45)
+		pass
 	pass 

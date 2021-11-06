@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/round.ogg-3f81e147a7d1f73fdb2ca56ae085df02.oggstr"
+
+[deps]
+
+source_file="res://SFX/Round/round.ogg"
+dest_files=[ "res://.import/round.ogg-3f81e147a7d1f73fdb2ca56ae085df02.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
