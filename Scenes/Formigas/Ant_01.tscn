@@ -6,4 +6,8 @@
 
 [node name="Formiga_01" parent="." instance=ExtResource( 1 )]
 
+[node name="CSGBox" type="CSGBox" parent="Formiga_01/Armature" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.16448, -24.2346 )
+depth = 44.1529
+
 [editable path="Formiga_01"]
