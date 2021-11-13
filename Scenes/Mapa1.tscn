@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/Mapa1.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Armas/Formiga1.tscn" type="PackedScene" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://SFX/Round/mission_completed.ogg" type="AudioStream" id=5]
 [ext_resource path="res://UI/ButtonUI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://UI/Fonts/Bubblegum_Sans/BubblegumDynamic.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Scenes/Store.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Texturas/Grass 004/Grass004_2K_Color.jpg" type="Texture" id=9]
+[ext_resource path="res://Texturas/Ground 048/Ground048_1K_Color.jpg" type="Texture" id=10]
 
 [sub_resource type="Curve3D" id=1]
 _data = {
@@ -29,6 +32,17 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_texture = ExtResource( 10 )
+
+[sub_resource type="PlaneMesh" id=4]
+material = SubResource( 3 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_texture = ExtResource( 9 )
+
+[sub_resource type="BoxShape" id=6]
 
 [node name="Mapa 1" type="Spatial"]
 script = ExtResource( 1 )
@@ -91,22 +105,7 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Interface"]
 anims/sumir = SubResource( 2 )
 
-[node name="Store" type="Control" parent="Interface"]
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="Interface/Store"]
-margin_left = 2.0
-margin_top = 777.0
-margin_right = 1918.0
-margin_bottom = 1072.0
-color = Color( 1, 0.866667, 0.552941, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Store" parent="Interface" instance=ExtResource( 8 )]
 
 [node name="PauseMenu" parent="Interface" instance=ExtResource( 3 )]
 pause_mode = 2
@@ -149,6 +148,18 @@ stream = ExtResource( 4 )
 
 [node name="MissionCompletedAudio" type="AudioStreamPlayer" parent="Interface"]
 stream = ExtResource( 5 )
+
+[node name="Ground" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.3, 0, -19.9 )
+
+[node name="CSGMesh" type="CSGMesh" parent="Ground"]
+transform = Transform( 35, 0, 0, 0, 1, 0, 0, 0, 35, 0, 0, 0 )
+mesh = SubResource( 4 )
+material = SubResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground"]
+transform = Transform( 35, 0, 0, 0, 0.5, 0, 0, 0, 35, 0, -0.5, 0 )
+shape = SubResource( 6 )
 
 [connection signal="timeout" from="SpawnTime" to="." method="_on_SpawnTime_timeout"]
 [connection signal="timeout" from="Rodada" to="." method="_on_Rodada_timeout"]

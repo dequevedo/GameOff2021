@@ -6,6 +6,14 @@ var pre_bug_3 = preload("res://Scenes/Bugs/Bug3.tscn")
 var roundAudios = [
 	preload(str("res://SFX/Round/1.ogg")),
 	preload(str("res://SFX/Round/2.ogg")),
+	preload(str("res://SFX/Round/3.ogg")),
+	preload(str("res://SFX/Round/4.ogg")),
+	preload(str("res://SFX/Round/5.ogg")),
+	preload(str("res://SFX/Round/6.ogg")),
+	preload(str("res://SFX/Round/7.ogg")),
+	preload(str("res://SFX/Round/8.ogg")),
+	preload(str("res://SFX/Round/9.ogg")),
+	preload(str("res://SFX/Round/10.ogg")),
 	preload(str("res://SFX/Round/final_round.ogg"))
 ]
 
