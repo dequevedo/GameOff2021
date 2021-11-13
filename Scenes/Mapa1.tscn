@@ -59,7 +59,7 @@ transform = Transform( 1, 0, 0, 0, 0.422618, 0.906308, 0, -0.906308, 0.422618, 3
 fov = 75.5384
 
 [node name="SpawnTime" type="Timer" parent="."]
-wait_time = 0.4
+wait_time = 0.5
 one_shot = true
 
 [node name="Rodada" type="Timer" parent="."]
@@ -150,15 +150,14 @@ stream = ExtResource( 4 )
 stream = ExtResource( 5 )
 
 [node name="Ground" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.3, 0, -19.9 )
 
 [node name="CSGMesh" type="CSGMesh" parent="Ground"]
-transform = Transform( 35, 0, 0, 0, 1, 0, 0, 0, 35, 0, 0, 0 )
+transform = Transform( 100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0 )
 mesh = SubResource( 4 )
 material = SubResource( 5 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Ground"]
-transform = Transform( 35, 0, 0, 0, 0.5, 0, 0, 0, 35, 0, -0.5, 0 )
+transform = Transform( 100, 0, 0, 0, 0.5, 0, 0, 0, 100, 0, -0.5, 0 )
 shape = SubResource( 6 )
 
 [connection signal="timeout" from="SpawnTime" to="." method="_on_SpawnTime_timeout"]

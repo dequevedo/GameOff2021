@@ -15,6 +15,7 @@ autostart = true
 transform = Transform( 0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0 )
 
 [node name="Bulet_position" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0560744, 0.174878, 0 )
 
 [connection signal="timeout" from="Shot" to="." method="_on_Shot_timeout"]
 

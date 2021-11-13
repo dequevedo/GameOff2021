@@ -7,6 +7,7 @@
 extents = Vector3( 0.5, 0.5, 0.5 )
 
 [node name="Bug1" type="PathFollow"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
 script = ExtResource( 1 )
 
 [node name="CSGBox" type="CSGBox" parent="."]
@@ -23,4 +24,5 @@ shape = SubResource( 1 )
 stream = ExtResource( 2 )
 
 [connection signal="area_entered" from="Area" to="." method="_on_Area_area_entered"]
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
 [connection signal="finished" from="BugDeathSound" to="." method="_on_BugDeathSound_finished"]

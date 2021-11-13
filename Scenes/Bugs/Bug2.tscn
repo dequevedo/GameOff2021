@@ -11,6 +11,7 @@ albedo_texture = ExtResource( 1 )
 extents = Vector3( 0.5, 0.5, 0.5 )
 
 [node name="Bug2" type="PathFollow"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
 script = ExtResource( 2 )
 
 [node name="CSGBox" type="CSGBox" parent="."]
@@ -27,5 +28,5 @@ shape = SubResource( 2 )
 [node name="BugDeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 
-[connection signal="area_entered" from="Area" to="." method="_on_Area_area_entered"]
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
 [connection signal="finished" from="BugDeathSound" to="." method="_on_BugDeathSound_finished"]

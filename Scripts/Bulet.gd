@@ -1,8 +1,8 @@
-extends Spatial
+extends KinematicBody
 
 
 var targuet
-var vel = 100
+var speed = Vector3(100,100,100)
 var dir = Vector3()
 var dano = 1
 
@@ -16,7 +16,9 @@ func _process(delta):
 	else: 
 		dir = (targuet.global_transform.origin - global_transform.origin)
 		dir = dir.normalized()
-		global_transform.origin = global_transform.origin  + vel * dir *delta
+		var vel = dir*speed
+		move_and_slide(vel)
+		#global_transform.origin = global_transform.origin  + vel * dir * delta
 	
 	pass
 
