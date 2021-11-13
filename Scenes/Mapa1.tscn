@@ -149,7 +149,7 @@ stream = ExtResource( 4 )
 [node name="MissionCompletedAudio" type="AudioStreamPlayer" parent="Interface"]
 stream = ExtResource( 5 )
 
-[node name="Ground" type="Area" parent="."]
+[node name="Ground" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.3, 0, -19.9 )
 
 [node name="CSGMesh" type="CSGMesh" parent="Ground"]

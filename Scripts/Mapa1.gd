@@ -1,5 +1,10 @@
 extends Spatial
 
+onready var camera = $Camera
+var rayOrigin = Vector3()
+var rayEnd = Vector3()
+var mouse_world_position
+
 var pre_bug_1 = preload("res://Scenes/Bugs/Bug1.tscn")
 var pre_bug_2 = preload("res://Scenes/Bugs/Bug2.tscn")
 var pre_bug_3 = preload("res://Scenes/Bugs/Bug3.tscn")
@@ -28,6 +33,30 @@ var rodadas = [
 
 func _ready():
 	rodada()
+	pass
+
+func _input(event):
+	if event.is_action_pressed("click"):
+		
+		pass
+ 
+	pass
+
+func _physics_process(delta):
+	
+	var space_state = get_world().direct_space_state
+	
+	var mouse_position = get_viewport().get_mouse_position()
+	
+	rayOrigin = camera.project_ray_origin(mouse_position)
+	
+	rayEnd = rayOrigin + camera.project_ray_normal(mouse_position) *2000
+	
+	var intersection = space_state.intersect_ray(rayOrigin, rayEnd)
+	
+	if not intersection.empty():
+		mouse_world_position = intersection.position
+	
 	pass
 
 func rodada():
