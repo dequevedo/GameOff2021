@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/Formiga_01.dae-be820421d59f8aa808ed6388a1cf45ed.scn"
+path="res://.import/Formiga_01.glb-dd28a8776ff878c10bd677a87b72431c.scn"
 
 [deps]
 
-source_file="res://Models/Formiga_01/Formiga_01.dae"
-dest_files=[ "res://.import/Formiga_01.dae-be820421d59f8aa808ed6388a1cf45ed.scn" ]
+source_file="res://Models/Formiga_01/Formiga_01.glb"
+dest_files=[ "res://.import/Formiga_01.glb-dd28a8776ff878c10bd677a87b72431c.scn" ]
 
 [params]
 
