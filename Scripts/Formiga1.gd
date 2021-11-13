@@ -19,8 +19,7 @@ func _on_Shot_timeout():
 		bulet_.targuet = caminhoChild
 
 		get_parent().add_child(bulet_)
-		$Spatial/Formiga_01/Corpo.look_at(Vector3(bulet_.targuet.translation.x,translation.y,bulet_.targuet.translation.z),Vector3(0,1,0))
-		$Spatial/Formiga_01/Olhos.look_at(Vector3(bulet_.targuet.translation.x,translation.y,bulet_.targuet.translation.z),Vector3(0,1,0))
-		$Spatial/Formiga_01/Cabeca.look_at(Vector3(bulet_.targuet.translation.x,translation.y,bulet_.targuet.translation.z),Vector3(0,1,0))
+		$Spatial/Formiga_01/Armature.look_at(Vector3(bulet_.targuet.translation.x,translation.y,bulet_.targuet.translation.z),Vector3(0,1,0))
+		
 		pass
 	pass 
