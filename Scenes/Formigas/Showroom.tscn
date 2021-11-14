@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Models/Formiga_01/Formiga_01.glb" type="PackedScene" id=1]
 [ext_resource path="res://Models/Level_01/Level_01.glb" type="PackedScene" id=2]
+[ext_resource path="res://Models/Level_01/Level_01_Tower_Area.glb" type="PackedScene" id=3]
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
@@ -30,5 +31,8 @@ adjustment_enabled = true
 environment = SubResource( 1 )
 
 [node name="Level_01" parent="." instance=ExtResource( 2 )]
+
+[node name="Level_01_Tower_Area" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.913013, 0.114349, -0.742569 )
 
 [editable path="Formiga_01"]
