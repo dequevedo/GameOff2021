@@ -66,34 +66,7 @@ one_shot = true
 wait_time = 20.0
 
 [node name="Formiga1" parent="." instance=ExtResource( 2 )]
-transform = Transform( 10.85, 0, 0, 0, 10.85, 0, 0, 0, 10.85, 31.5, 0, -13 )
-
-[node name="Formiga2" parent="." instance=ExtResource( 2 )]
-transform = Transform( 10.85, 0, 0, 0, 10.85, 0, 0, 0, 10.85, 31.6, 0, -19.5 )
-
-[node name="Formiga3" parent="." instance=ExtResource( 2 )]
-transform = Transform( 10.85, 0, 0, 0, 10.85, 0, 0, 0, 10.85, 54.3, 0, -20 )
-
-[node name="Formiga4" parent="." instance=ExtResource( 2 )]
-transform = Transform( 10.85, 0, 0, 0, 10.85, 0, 0, 0, 10.85, 14.9, 0, -22.5 )
-
-[node name="Formiga5" parent="." instance=ExtResource( 2 )]
-transform = Transform( 10.85, 0, 0, 0, 10.85, 0, 0, 0, 10.85, 13.8, 0, -15.2 )
-
-[node name="Formiga6" parent="." instance=ExtResource( 2 )]
-transform = Transform( 10.85, 0, 0, 0, 10.85, 0, 0, 0, 10.85, 26.4, 0, -3.2 )
-
-[node name="Formiga7" parent="." instance=ExtResource( 2 )]
-transform = Transform( 10.85, 0, 0, 0, 10.85, 0, 0, 0, 10.85, 34.7, 0, -29.1 )
-
-[node name="Formiga8" parent="." instance=ExtResource( 2 )]
-transform = Transform( 10.85, 0, 0, 0, 10.85, 0, 0, 0, 10.85, 47, 0, -29.9 )
-
-[node name="Formiga9" parent="." instance=ExtResource( 2 )]
-transform = Transform( 10.85, 0, 0, 0, 10.85, 0, 0, 0, 10.85, 61, 0, -26.5 )
-
-[node name="Formiga10" parent="." instance=ExtResource( 2 )]
-transform = Transform( 10.85, 0, 0, 0, 10.85, 0, 0, 0, 10.85, 60.3, 0, -14.8 )
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 35.5, 0, -6.9 )
 
 [node name="Interface" type="Control" parent="."]
 anchor_right = 1.0
@@ -162,5 +135,8 @@ shape = SubResource( 6 )
 
 [connection signal="timeout" from="SpawnTime" to="." method="_on_SpawnTime_timeout"]
 [connection signal="timeout" from="Rodada" to="." method="_on_Rodada_timeout"]
+[connection signal="pressed" from="Interface/Store/Button_formiga_1" to="." method="_on_Button_formiga_1_pressed"]
 [connection signal="pressed" from="Interface/FinishOverlay/Button" to="." method="_on_Button_pressed"]
 [connection signal="finished" from="Interface/RoundAudio" to="." method="_on_RoundAudio_finished"]
+
+[editable path="Interface/Store"]

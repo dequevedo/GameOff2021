@@ -4,6 +4,7 @@
 [ext_resource path="res://Scripts/Formiga1.gd" type="Script" id=2]
 
 [node name="Formiga1" type="Spatial"]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
 script = ExtResource( 2 )
 
 [node name="Shot" type="Timer" parent="."]
