@@ -1,10 +1,12 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/Button_formiga_1.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Store.gd" type="Script" id=2]
 
 [node name="Store" type="Control"]
 margin_right = 40.0
 margin_bottom = 40.0
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -25,11 +27,9 @@ margin_top = 815.26
 margin_right = 150.352
 margin_bottom = 873.26
 script = ExtResource( 1 )
-
-[node name="ColorRect" type="ColorRect" parent="Button_formiga_1"]
-margin_right = 80.0
-margin_bottom = 59.0
-color = Color( 0.188235, 0.847059, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Nome" type="Label" parent="Button_formiga_1"]
 modulate = Color( 0, 0, 0, 1 )
@@ -45,3 +45,5 @@ margin_top = 63.3954
 margin_right = 62.711
 margin_bottom = 77.3954
 text = "$10"
+
+[connection signal="pressed" from="Button_formiga_1" to="." method="_on_Button_formiga_1_pressed"]

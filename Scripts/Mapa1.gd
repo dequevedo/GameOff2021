@@ -5,6 +5,9 @@ var rayOrigin = Vector3()
 var rayEnd = Vector3()
 var mouse_world_position
 
+
+var pre_formiga_1 = preload("res://Scenes/Armas/Formiga1.tscn")
+
 var pre_bug_1 = preload("res://Scenes/Bugs/Bug1.tscn")
 var pre_bug_2 = preload("res://Scenes/Bugs/Bug2.tscn")
 var pre_bug_3 = preload("res://Scenes/Bugs/Bug3.tscn")
@@ -128,3 +131,11 @@ func missionCompleted():
 func _on_Button_pressed():
 	get_tree().change_scene("res://UI/MainMenu.tscn")
 	pass # Replace with function body.
+
+
+func _on_Button_formiga_1_pressed():
+	print("click")
+	var new_formiga = pre_formiga_1.instance()
+	new_formiga.in_muve = true
+	add_child(new_formiga)
+	pass
