@@ -1,4 +1,4 @@
-extends Control
+extends TextureButton
 
 
 # Declare member variables here. Examples:
@@ -15,11 +15,12 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func _on_StartButton_pressed():
-	get_node("buttons/StartButton/Oh-yeah").play()
+
+func _on_Button_mouse_entered():
+	$hover.play()
 	pass # Replace with function body.
 
 
-func _on_Ohyeah_finished():
-	get_tree().change_scene("res://Scenes/Mapa1.tscn")
+func _on_Button_pressed():
+	$click.play()
 	pass # Replace with function body.

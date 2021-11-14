@@ -1,9 +1,19 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://UI/Fonts/Bubblegum_Sans/BubblegumDynamic.tres" type="DynamicFont" id=1]
 [ext_resource path="res://UI/ButtonUI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/MenuUI.gd" type="Script" id=3]
 [ext_resource path="res://UI/Audio/Auye.tres" type="AudioStream" id=4]
+[ext_resource path="res://UI/Sprites/backgroundmenu.png" type="Texture" id=5]
+[ext_resource path="res://UI/Sprites/Footer.png" type="Texture" id=6]
+[ext_resource path="res://UI/Fonts/Gluten/GlutonDynamic.tres" type="DynamicFont" id=7]
+[ext_resource path="res://UI/Fonts/Gluten/static/Gluten-Regular.ttf" type="DynamicFontData" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 8 )
 
 [node name="MenuUI" type="Control"]
 anchor_right = 1.0
@@ -15,48 +25,92 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MenuButtons" type="VBoxContainer" parent="."]
-margin_left = 180.354
-margin_top = 623.19
-margin_right = 503.354
-margin_bottom = 1109.19
-grow_horizontal = 0
-grow_vertical = 0
-custom_constants/separation = 30
+[node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="StartButton" parent="MenuButtons" instance=ExtResource( 2 )]
-margin_right = 323.0
-margin_bottom = 49.0
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.137255, 0.00784314, 0.027451, 0.741176 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Oh-yeah" type="AudioStreamPlayer" parent="MenuButtons/StartButton"]
+[node name="buttons" type="ColorRect" parent="."]
+margin_left = 138.905
+margin_top = 281.8
+margin_right = 607.905
+margin_bottom = 799.8
+size_flags_stretch_ratio = 0.0
+color = Color( 0.713726, 0.454902, 0.0392157, 0.596078 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartButton" parent="buttons" instance=ExtResource( 2 )]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -174.5
+margin_top = 59.0
+margin_right = 175.5
+margin_bottom = 159.0
+
+[node name="Oh-yeah" type="AudioStreamPlayer" parent="buttons/StartButton"]
 stream = ExtResource( 4 )
 
-[node name="OptionsButton" parent="MenuButtons" instance=ExtResource( 2 )]
-margin_top = 79.0
-margin_right = 323.0
-margin_bottom = 128.0
+[node name="OptionsButton" parent="buttons" instance=ExtResource( 2 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -174.5
+margin_top = -98.449
+margin_right = 175.5
+margin_bottom = 1.55096
+
+[node name="Text" parent="buttons/OptionsButton" index="0"]
+margin_left = -86.0
+margin_right = 86.0
 text = "Opções"
 
-[node name="CreditsButton" parent="MenuButtons" instance=ExtResource( 2 )]
-margin_top = 158.0
-margin_right = 323.0
-margin_bottom = 207.0
+[node name="CreditsButton" parent="buttons" instance=ExtResource( 2 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -174.5
+margin_right = 175.5
+margin_bottom = 100.0
+
+[node name="Text" parent="buttons/CreditsButton" index="0"]
+margin_left = -97.0
+margin_right = 97.0
 text = "Créditos"
 
-[node name="ExitButton" parent="MenuButtons" instance=ExtResource( 2 )]
-margin_top = 237.0
-margin_right = 323.0
-margin_bottom = 286.0
+[node name="ExitButton" parent="buttons" instance=ExtResource( 2 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -174.5
+margin_top = 100.0
+margin_right = 175.5
+margin_bottom = 200.0
+
+[node name="Text" parent="buttons/ExitButton" index="0"]
 text = "Sair"
 
 [node name="Logo" type="Label" parent="."]
-margin_left = 84.639
-margin_top = 175.56
-margin_right = 948.639
-margin_bottom = 445.56
+margin_left = 840.164
+margin_top = 183.879
+margin_right = 1704.16
+margin_bottom = 453.879
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 0.721569, 0, 1 )
 text = "Ant Bugs"
@@ -66,5 +120,58 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="MenuButtons/StartButton" to="." method="_on_StartButton_pressed"]
-[connection signal="finished" from="MenuButtons/StartButton/Oh-yeah" to="." method="_on_Ohyeah_finished"]
+[node name="Header" type="TextureRect" parent="."]
+anchor_right = 1.0
+margin_bottom = 101.0
+texture = ExtResource( 6 )
+flip_v = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Header"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -960.0
+margin_top = -48.5
+margin_right = 960.0
+margin_bottom = 48.5
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.713726, 0.454902, 0.0392157, 1 )
+text = "Menu Principal"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Footer" type="TextureRect" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -101.0
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Footer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.713726, 0.454902, 0.0392157, 1 )
+text = "Projetado e desenvolvido por Daniel Quevedo, Michael Vivaldini e Tacio Nascimento"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="buttons/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="finished" from="buttons/StartButton/Oh-yeah" to="." method="_on_Ohyeah_finished"]
+
+[editable path="buttons/OptionsButton"]
+[editable path="buttons/CreditsButton"]
+[editable path="buttons/ExitButton"]

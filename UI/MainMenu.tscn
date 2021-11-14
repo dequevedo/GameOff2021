@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://UI/MenuUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/Audio/amb_forest.mp3" type="AudioStream" id=2]
 [ext_resource path="res://UI/Audio/funbgm.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Scenes/Formigas/Ant_01.tscn" type="PackedScene" id=4]
 
 [node name="MainMenu" type="Spatial"]
 
@@ -17,3 +18,9 @@ autoplay = true
 stream = ExtResource( 2 )
 volume_db = -15.0
 autoplay = true
+
+[node name="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.752852, 0, 0.65819, 0, 1, 0, -0.65819, 0, -0.752852, 0, -2.05805, 0 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.676973, 0.164569, -0.717373, 0.123955, 0.935267, 0.331529, 0.725494, -0.313358, 0.612751, -13.5155, 11.0567, 0.959895 )
