@@ -58,6 +58,7 @@ func _physics_process(delta):
 	var intersection = space_state.intersect_ray(rayOrigin, rayEnd)
 	
 	if not intersection.empty():
+		
 		mouse_world_position = intersection.position
 	
 	pass

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Models/Level_01/Level_01_Tower_Area.glb" type="PackedScene" id=1]
+
+[node name="Ground" type="StaticBody"]
+
+[node name="Level_01_Tower_Area" parent="." instance=ExtResource( 1 )]
