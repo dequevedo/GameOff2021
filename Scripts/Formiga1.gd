@@ -29,7 +29,7 @@ func _physics_process(delta):
 		if not intersection.empty() and intersection.collider.is_in_group('ALLOWED_AREA'):
 			
 			
-			translation = intersection.position
+			global_transform.origin = intersection.position
 			
 
 func _input(event):
@@ -44,7 +44,7 @@ func _process(delta):
 	
 	if get_parent().get_child(0).get_children().size() > 0 and not in_muve:
 		var caminhoChild = get_parent().get_child(0).get_child(0)
-		$Spatial/Formiga_01/Armature.look_at(caminhoChild.translation * Vector3(1,0,1),Vector3(0,1,0))
+		$Spatial/Formiga_01/Armature.look_at(caminhoChild.global_transform.origin * Vector3(1,0,1),Vector3(0,1,0))
 	pass
 
 
