@@ -1,13 +1,12 @@
 extends Spatial
 
 var bulet = preload("res://Scenes/Armas/Bulet.tscn")
-onready var camera = get_parent().get_node("Camera")
+onready var camera = get_parent().get_parent().get_node("Camera")
 var in_muve = false
-var in_area_permitida = false
 var targuet_position = Vector3(0,0,0)
 var rayOrigin = Vector3()
 var rayEnd = Vector3()
-var in_allowed_area = true
+var in_allowed_area = false
 
 
 func _ready():
@@ -28,31 +27,37 @@ func _physics_process(delta):
 		
 		if not intersection.empty() and intersection.collider.is_in_group('ALLOWED_AREA'):
 			
-			
 			global_transform.origin = intersection.position
+			in_allowed_area = true
+		elif intersection.empty() or not intersection.collider.is_in_group('ALLOWED_AREA'): 
+			in_allowed_area = false
+			pass
 			
-
 func _input(event):
 	if event.is_action_pressed("click") and in_allowed_area and in_muve:
 				in_muve = false
-				print(in_muve)
 	
 
 
 func _process(delta):
 	
+	if in_muve:
+		get_node("Body").get_child(0).disabled = true
+	else:
+		get_node("Body").get_child(0).disabled  = false
 	
-	if get_parent().get_child(0).get_children().size() > 0 and not in_muve:
-		var caminhoChild = get_parent().get_child(0).get_child(0)
+	
+	if get_parent().get_parent().get_child(0).get_children().size() > 0 and not in_muve:
+		var caminhoChild = get_parent().get_parent().get_child(0).get_child(0)
 		$Spatial/Formiga_01/Armature.look_at(caminhoChild.global_transform.origin * Vector3(1,0,1),Vector3(0,1,0))
 	pass
 
 
 func _on_Shot_timeout():
-	if get_parent().get_child(0).get_children().size() > 0 and not in_muve :
-		var caminhoChild = get_parent().get_child(0).get_child(0)
+	if get_parent().get_parent().get_child(0).get_children().size() > 0 and not in_muve :
+		var caminhoChild = get_parent().get_parent().get_child(0).get_child(0)
 		var bulet_ = bulet.instance()
-		get_parent().add_child(bulet_)
+		get_parent().get_parent().add_child(bulet_)
 		bulet_.global_transform.origin = $Bulet_position.global_transform.origin
 		bulet_.targuet = caminhoChild
 		pass

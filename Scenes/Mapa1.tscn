@@ -109,6 +109,8 @@ stream = ExtResource( 5 )
 [node name="Level_01_Tower_Area" parent="." instance=ExtResource( 9 )]
 transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 31.1, 0, -34.6 )
 
+[node name="formigas" type="Node" parent="."]
+
 [connection signal="timeout" from="SpawnTime" to="." method="_on_SpawnTime_timeout"]
 [connection signal="timeout" from="Rodada" to="." method="_on_Rodada_timeout"]
 [connection signal="pressed" from="Interface/Store/Button_formiga_1" to="." method="_on_Button_formiga_1_pressed"]

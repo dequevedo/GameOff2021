@@ -4,9 +4,11 @@
 [ext_resource path="res://Scripts/Formiga1.gd" type="Script" id=2]
 
 [sub_resource type="BoxShape" id=1]
-extents = Vector3( 0.146269, 0.0925019, 0.103995 )
+extents = Vector3( 0.15606, 0.0925019, 0.160398 )
 
-[node name="Formiga1" type="Spatial"]
+[node name="Formiga1" type="Spatial" groups=[
+"FORMIGA",
+]]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
 script = ExtResource( 2 )
 
@@ -23,9 +25,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0560744, 0.174878, 0 )
 
 [node name="Body" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0308789 )
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="Body"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0490429, 0.0926754, -0.00130012 )
+transform = Transform( 1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0.01331, 0.0926754, -0.0299318 )
 shape = SubResource( 1 )
 
 [connection signal="timeout" from="Shot" to="." method="_on_Shot_timeout"]

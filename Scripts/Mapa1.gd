@@ -135,8 +135,10 @@ func _on_Button_pressed():
 
 
 func _on_Button_formiga_1_pressed():
-	print("click")
-	var new_formiga = pre_formiga_1.instance()
-	new_formiga.in_muve = true
-	add_child(new_formiga)
+
+		
+	if get_node("formigas").get_child_count()<=0 or not get_node("formigas").get_child(get_node("formigas").get_child_count()-1).in_muve:
+		var new_formiga = pre_formiga_1.instance()
+		new_formiga.in_muve = true
+		get_node("formigas").add_child(new_formiga)
 	pass
