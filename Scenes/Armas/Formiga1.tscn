@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Formigas/Ant_01.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Formiga1.gd" type="Script" id=2]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.15606, 0.0925019, 0.160398 )
+
+[sub_resource type="SphereShape" id=2]
 
 [node name="Formiga1" type="Spatial" groups=[
 "FORMIGA",
@@ -32,7 +34,14 @@ collision_mask = 2
 transform = Transform( 1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0.01331, 0.0926754, -0.0299318 )
 shape = SubResource( 1 )
 
+[node name="range" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="range"]
+shape = SubResource( 2 )
+
 [connection signal="timeout" from="Shot" to="." method="_on_Shot_timeout"]
+[connection signal="area_entered" from="range" to="." method="_on_range_area_entered"]
+[connection signal="area_exited" from="range" to="." method="_on_range_area_exited"]
 
 [editable path="Spatial"]
 [editable path="Spatial/Formiga_01"]

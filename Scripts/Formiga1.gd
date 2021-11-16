@@ -3,10 +3,10 @@ extends Spatial
 var bulet = preload("res://Scenes/Armas/Bulet.tscn")
 onready var camera = get_parent().get_parent().get_node("Camera")
 var in_muve = false
-var targuet_position = Vector3(0,0,0)
 var rayOrigin = Vector3()
 var rayEnd = Vector3()
 var in_allowed_area = false
+var targuets = []
 
 
 func _ready():
@@ -54,11 +54,26 @@ func _process(delta):
 
 
 func _on_Shot_timeout():
-	if get_parent().get_parent().get_child(0).get_children().size() > 0 and not in_muve :
-		var caminhoChild = get_parent().get_parent().get_child(0).get_child(0)
+	
+	if targuets.size() > 0 and not in_muve :
+		var targuet  = targuets[0]
 		var bulet_ = bulet.instance()
 		get_parent().get_parent().add_child(bulet_)
 		bulet_.global_transform.origin = $Bulet_position.global_transform.origin
-		bulet_.targuet = caminhoChild
+		bulet_.targuet = targuet
 		pass
 	pass 
+
+
+func _on_range_area_entered(area):
+	if area.get_parent().is_in_group("BUG"):
+		targuets.append(area.get_parent())
+		print(targuets)
+	pass 
+
+
+func _on_range_area_exited(area):
+	if area.get_parent().is_in_group("BUG"):
+		targuets.erase(area.get_parent())
+		print(targuets)
+	pass # Replace with function body.
