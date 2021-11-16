@@ -37,8 +37,8 @@ func _input(event):
 	if event.is_action_pressed("click") and in_allowed_area and in_muve:
 				in_muve = false
 				$range/Showed_range.visible = false
-				
-	
+	if event.is_action_pressed("right_click") and in_muve:
+		queue_free()
 
 
 func _process(delta):

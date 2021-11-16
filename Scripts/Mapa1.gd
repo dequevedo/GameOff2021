@@ -4,6 +4,9 @@ onready var camera = $Camera
 var rayOrigin = Vector3()
 var rayEnd = Vector3()
 var mouse_world_position
+var intersection
+var upgrade_open = {}
+
 
 
 var pre_formiga_1 = preload("res://Scenes/Armas/Formiga1.tscn")
@@ -39,11 +42,30 @@ func _ready():
 	pass
 
 func _input(event):
-	if event.is_action_pressed("click"):
+	if   event.is_action_pressed("click"):
 		
-		pass
+		if not intersection.empty() and intersection.collider.get_parent().is_in_group("FORMIGA"):
+			close_lest_upgrade()
+			open_upgrade(intersection.collider.get_parent().get_node("upgrades"))
+		else :
+			
+			close_lest_upgrade()
+
  
 	pass
+
+func open_upgrade(upgrade):
+
+	upgrade_open = upgrade
+	upgrade_open.rect_position = get_viewport().get_mouse_position()
+	upgrade_open.visible = true
+	upgrade_open.get_parent().get_node('range/Showed_range').visible = true
+	pass
+func close_lest_upgrade():
+	if upgrade_open:
+		upgrade_open.visible = false
+		upgrade_open.get_parent().get_node('range/Showed_range').visible = false
+		upgrade_open = {}
 
 func _physics_process(delta):
 	
@@ -55,7 +77,7 @@ func _physics_process(delta):
 	
 	rayEnd = rayOrigin + camera.project_ray_normal(mouse_position) *2000
 	
-	var intersection = space_state.intersect_ray(rayOrigin, rayEnd)
+	intersection = space_state.intersect_ray(rayOrigin, rayEnd)
 	
 	if not intersection.empty():
 		
@@ -136,7 +158,6 @@ func _on_Button_pressed():
 
 func _on_Button_formiga_1_pressed():
 
-		
 	if get_node("formigas").get_child_count()<=0 or not get_node("formigas").get_child(get_node("formigas").get_child_count()-1).in_muve:
 		var new_formiga = pre_formiga_1.instance()
 		new_formiga.in_muve = true
