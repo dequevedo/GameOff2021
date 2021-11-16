@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Formigas/Ant_01.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Formiga1.gd" type="Script" id=2]
@@ -7,6 +7,10 @@
 extents = Vector3( 0.15606, 0.0925019, 0.160398 )
 
 [sub_resource type="SphereShape" id=2]
+
+[sub_resource type="SpatialMaterial" id=3]
+flags_transparent = true
+albedo_color = Color( 0.380392, 0.733333, 0.945098, 0.290196 )
 
 [node name="Formiga1" type="Spatial" groups=[
 "FORMIGA",
@@ -36,8 +40,12 @@ shape = SubResource( 1 )
 
 [node name="range" type="Area" parent="."]
 
-[node name="CollisionShape" type="CollisionShape" parent="range"]
+[node name="Shape_range" type="CollisionShape" parent="range"]
 shape = SubResource( 2 )
+
+[node name="Showed_range" type="CSGCylinder" parent="range"]
+height = 0.01
+material = SubResource( 3 )
 
 [connection signal="timeout" from="Shot" to="." method="_on_Shot_timeout"]
 [connection signal="area_entered" from="range" to="." method="_on_range_area_entered"]

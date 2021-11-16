@@ -7,10 +7,11 @@ var rayOrigin = Vector3()
 var rayEnd = Vector3()
 var in_allowed_area = false
 var targuets = []
+var range_radius = 1.3
 
 
 func _ready():
-	
+	set_range_radius(range_radius)
 	pass
 	
 func _physics_process(delta):
@@ -31,11 +32,12 @@ func _physics_process(delta):
 			in_allowed_area = true
 		elif intersection.empty() or not intersection.collider.is_in_group('ALLOWED_AREA'): 
 			in_allowed_area = false
-			pass
 			
 func _input(event):
 	if event.is_action_pressed("click") and in_allowed_area and in_muve:
 				in_muve = false
+				$range/Showed_range.visible = false
+				
 	
 
 
@@ -68,12 +70,16 @@ func _on_Shot_timeout():
 func _on_range_area_entered(area):
 	if area.get_parent().is_in_group("BUG"):
 		targuets.append(area.get_parent())
-		print(targuets)
 	pass 
 
 
 func _on_range_area_exited(area):
 	if area.get_parent().is_in_group("BUG"):
 		targuets.erase(area.get_parent())
-		print(targuets)
 	pass # Replace with function body.
+
+func set_range_radius(radius):
+	
+	$range/Shape_range.shape.radius = radius
+	$range/Showed_range.radius = radius
+	pass

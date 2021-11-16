@@ -1,5 +1,5 @@
 extends PathFollow
-var vida = 30
+var vida = 5
 var pos = 0.0
 var vel = 0.03
 
