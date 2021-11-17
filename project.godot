@@ -14,6 +14,10 @@ config/name="Game Off 2021"
 run/main_scene="res://Scenes/Mapa1.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://Scripts/Global.gd"
+
 [display]
 
 window/size/width=1920

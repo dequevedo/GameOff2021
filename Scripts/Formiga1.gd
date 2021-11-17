@@ -8,6 +8,7 @@ var in_allowed_area = false
 var targuets = []
 var range_radius = 1.3
 var bulet_dano = 1
+var custo = 10
 
 
 
@@ -40,6 +41,8 @@ func _input(event):
 	if event.is_action_pressed("click") and in_allowed_area and in_muve:
 				in_muve = false
 				$range/Showed_range.visible = false
+				Global.moedas -= custo
+				
 	if event.is_action_pressed("right_click") and in_muve:
 		queue_free()
 

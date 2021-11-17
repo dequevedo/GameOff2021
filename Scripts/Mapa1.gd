@@ -6,6 +6,8 @@ var rayEnd = Vector3()
 var mouse_world_position
 var intersection
 var upgrade_open = {}
+var goalLife = 10
+
 
 
 var roundAudios = [
@@ -27,13 +29,30 @@ var rodadaCont = 0
 
 var rodadas = [
 	[1,1,1,2,2,2,1,1,1,3],
-	[1,1,1,2,2,2,2,1,1,1],
-	[1,1,1,2,3,2,3,1,2,1]
+	[1,1,1,2,3,2,3,1,2,1,1,1,1,1,2,3,3,3,1,2,2,2,2,2,2,3,3,3,2,2,2,3,3,3,2,2,2,2,2,3,3,3,3],
+	[1,1,1,2,3,2,3,1,2,1,1,1,1,1,2,3,3,3,1,2,2,2,2,2,2,3,3,3,2,2,2,3,3,3,2,2,2,2,2,3,3,3,3],
+	[1,1,1,2,3,2,3,1,2,1,1,1,1,1,2,3,3,3,1,2,2,2,2,2,2,3,3,3,2,2,2,3,3,3,2,2,2,2,2,3,3,3,3],
+	[1,1,1,2,3,2,3,1,2,1,1,1,1,1,2,3,3,3,1,2,2,2,2,2,2,3,3,3,2,2,2,3,3,3,2,2,2,2,2,3,3,3,3],
+	[1,1,1,2,3,2,3,1,2,1],
+	[1,1,1,2,3,2,3,1,2,1],
+	[1,1,1,2,3,2,3,1,2,1],
+	[1,1,1,2,3,2,3,1,2,1],
+	[1,1,1,2,3,2,3,1,2,1],
+	[1,1,1,2,3,2,3,1,2,1],
+	[1,1,1,2,3,2,3,1,2,1],
+	[1,1,1,2,3,2,3,1,2,1],
+	[1,1,1,2,3,2,3,1,2,1,1,1,1,1,2,3,3,3,1,2,2,2,2,2,2,3,3,3,2,2,2,3,3,3,2,2,2,2,2,3,3,3,3]
 ]
 
 func _ready():
+	
+	Global.moedas = 30
 	rodada()
 	pass
+
+func _process(delta):
+	if goalLife <=0:
+		print("morreu")
 
 func _input(event):
 	if   event.is_action_pressed("click"):
@@ -84,7 +103,7 @@ func rodada():
 		print('end')
 		rodadaCont +=1 
 		$Rodada.stop()
-		missionCompleted()
+		#missionCompleted()
 		return
 	
 	if(rodadaCont == rodadas.size()-1):
@@ -149,7 +168,6 @@ func _on_Button_pressed():
 	get_tree().change_scene("res://UI/MainMenu.tscn")
 	pass # Replace with function body.
 
-
 func _on_Button_formiga_1_pressed():
 
 	if get_node("formigas").get_child_count()<=0 or not get_node("formigas").get_child(get_node("formigas").get_child_count()-1).in_muve:
@@ -158,3 +176,11 @@ func _on_Button_formiga_1_pressed():
 		new_formiga.in_muve = true
 		get_node("formigas").add_child(new_formiga)
 	pass
+
+
+func _on_Goal_area_entered(area):
+	if area.get_parent().is_in_group("BUG"):
+		area.queue_free()
+		goalLife-=1
+	
+	pass 

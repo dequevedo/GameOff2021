@@ -15,6 +15,7 @@ func _process(delta):
 	
 	if(vida <=0 and !$BugDeathSound.playing):
 		queue_free()
+		Global.moedas += 5
 		#$BugDeathSound.play()
 
 func hit(dano):
