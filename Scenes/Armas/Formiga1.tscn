@@ -52,8 +52,8 @@ script = ExtResource( 4 )
 [connection signal="timeout" from="Shot" to="." method="_on_Shot_timeout"]
 [connection signal="area_entered" from="range" to="." method="_on_range_area_entered"]
 [connection signal="area_exited" from="range" to="." method="_on_range_area_exited"]
-[connection signal="button_down" from="upgrades/Button1" to="." method="_on_Button1_button_down"]
-[connection signal="button_down" from="upgrades/Button2" to="." method="_on_Button2_button_down"]
+[connection signal="pressed" from="upgrades/up_radius" to="." method="_on_up_radius_pressed"]
+[connection signal="pressed" from="upgrades/up_dano" to="." method="_on_up_dano_pressed"]
 
 [editable path="Spatial"]
 [editable path="Spatial/Formiga_01"]

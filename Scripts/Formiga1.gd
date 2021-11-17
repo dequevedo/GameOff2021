@@ -91,13 +91,14 @@ func set_range_radius(radius):
 	$range/Showed_range.radius = radius
 	range_radius = radius
 	pass
-
-
-func _on_Button1_button_down():
+	
+func _on_up_radius_pressed():
 	set_range_radius(range_radius+0.2)
-	pass
+	Global.moedas -= 100
+	pass # Replace with function body.
 
 
-func _on_Button2_button_down():
+func _on_up_dano_pressed():
 	bulet_dano+=1
-	pass 
+	Global.moedas -= 150
+	pass # Replace with function body.

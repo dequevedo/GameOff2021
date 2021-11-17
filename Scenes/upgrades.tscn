@@ -1,4 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/up_radius.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/up_dano.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "aparecer"
@@ -60,7 +63,6 @@ tracks/1/keys = {
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
-rect_scale = Vector2( 0.1, 0.1 )
 rect_pivot_offset = Vector2( 1, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -81,37 +83,59 @@ margin_right = 128.915
 margin_bottom = 19.3181
 text = "Upgrades"
 
-[node name="Button1" type="Button" parent="."]
+[node name="up_radius" type="Button" parent="."]
 margin_left = 8.0
 margin_top = 28.0
 margin_right = 53.0
 margin_bottom = 63.0
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="name" type="Label" parent="Button1"]
+[node name="name" type="Label" parent="up_radius"]
 margin_left = 54.8108
 margin_top = 10.1892
 margin_right = 93.8108
 margin_bottom = 26.1892
 text = "radius"
 
-[node name="Button2" type="Button" parent="."]
+[node name="custo" type="Label" parent="up_radius"]
+margin_left = 100.164
+margin_top = 11.3393
+margin_right = 140.164
+margin_bottom = 25.3393
+text = "$100"
+
+[node name="up_dano" type="Button" parent="."]
 margin_left = 8.0
 margin_top = 73.1899
 margin_right = 53.0
 margin_bottom = 108.19
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="name" type="Label" parent="Button2"]
+[node name="name" type="Label" parent="up_dano"]
 margin_left = 54.8108
 margin_top = 10.1892
 margin_right = 93.8108
 margin_bottom = 26.1892
 text = "Dano"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="custo" type="Label" parent="up_dano"]
+margin_left = 97.0139
+margin_top = 10.2466
+margin_right = 137.014
+margin_bottom = 24.2466
+text = "$150"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/aparecer = SubResource( 1 )
