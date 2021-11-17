@@ -8,12 +8,6 @@ var intersection
 var upgrade_open = {}
 
 
-
-var pre_formiga_1 = preload("res://Scenes/Armas/Formiga1.tscn")
-
-var pre_bug_1 = preload("res://Scenes/Bugs/Bug1.tscn")
-var pre_bug_2 = preload("res://Scenes/Bugs/Bug2.tscn")
-var pre_bug_3 = preload("res://Scenes/Bugs/Bug3.tscn")
 var roundAudios = [
 	preload(str("res://SFX/Round/1.ogg")),
 	preload(str("res://SFX/Round/2.ogg")),
@@ -58,12 +52,12 @@ func open_upgrade(upgrade):
 
 	upgrade_open = upgrade
 	upgrade_open.rect_position = get_viewport().get_mouse_position()
-	upgrade_open.visible = true
+	upgrade_open.get_node('AnimationPlayer').play('aparecer')
 	upgrade_open.get_parent().get_node('range/Showed_range').visible = true
 	pass
 func close_lest_upgrade():
 	if upgrade_open:
-		upgrade_open.visible = false
+		upgrade_open.get_node('AnimationPlayer').play('sumir')
 		upgrade_open.get_parent().get_node('range/Showed_range').visible = false
 		upgrade_open = {}
 
@@ -105,9 +99,9 @@ func rodada():
 		var new_bug 
 		
 		match i:
-			1: new_bug = pre_bug_1.instance()
-			2: new_bug = pre_bug_2.instance()
-			3: new_bug = pre_bug_3.instance()
+			1: new_bug = load("res://Scenes/Bugs/Bug1.tscn").instance()
+			2: new_bug = load("res://Scenes/Bugs/Bug2.tscn").instance()
+			3: new_bug = load("res://Scenes/Bugs/Bug3.tscn").instance()
 		
 		bugSpawnList.append(new_bug)
 	$SpawnTime.start()
@@ -159,6 +153,7 @@ func _on_Button_pressed():
 func _on_Button_formiga_1_pressed():
 
 	if get_node("formigas").get_child_count()<=0 or not get_node("formigas").get_child(get_node("formigas").get_child_count()-1).in_muve:
+		var pre_formiga_1 = load("res://Scenes/Armas/Formiga1.tscn")
 		var new_formiga = pre_formiga_1.instance()
 		new_formiga.in_muve = true
 		get_node("formigas").add_child(new_formiga)

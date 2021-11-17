@@ -1,6 +1,5 @@
 extends Spatial
 
-var bulet = preload("res://Scenes/Armas/Bulet.tscn")
 onready var camera = get_parent().get_parent().get_node("Camera")
 var in_muve = false
 var rayOrigin = Vector3()
@@ -8,10 +7,11 @@ var rayEnd = Vector3()
 var in_allowed_area = false
 var targuets = []
 var range_radius = 1.3
+var bulet_dano = 1
 
 
 func _ready():
-	set_range_radius(range_radius)
+	
 	pass
 	
 func _physics_process(delta):
@@ -59,10 +59,11 @@ func _on_Shot_timeout():
 	
 	if targuets.size() > 0 and not in_muve :
 		var targuet  = targuets[0]
-		var bulet_ = bulet.instance()
+		var bulet_ = load("res://Scenes/Armas/Bulet.tscn").instance()
 		get_parent().get_parent().add_child(bulet_)
 		bulet_.global_transform.origin = $Bulet_position.global_transform.origin
 		bulet_.targuet = targuet
+		bulet_.dano = bulet_dano
 		pass
 	pass 
 
@@ -82,4 +83,15 @@ func set_range_radius(radius):
 	
 	$range/Shape_range.shape.radius = radius
 	$range/Showed_range.radius = radius
+	range_radius = radius
 	pass
+
+
+func _on_Button1_button_down():
+	set_range_radius(range_radius+0.2)
+	pass
+
+
+func _on_Button2_button_down():
+	bulet_dano+=1
+	pass 

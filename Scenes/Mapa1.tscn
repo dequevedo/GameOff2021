@@ -43,7 +43,7 @@ curve = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 28.3, 5.9, 5.5 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.422618, 0.906308, 0, -0.906308, 0.422618, 37, 31.7, 7.7 )
+transform = Transform( 1, 1.7608e-09, 3.38246e-09, -3.63684e-09, 0.707107, 0.707107, -1.14669e-09, -0.707107, 0.707107, 37, 26.2, 15.7 )
 fov = 75.5384
 
 [node name="SpawnTime" type="Timer" parent="."]
