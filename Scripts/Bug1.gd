@@ -2,7 +2,7 @@ extends PathFollow
 var vida = 1
 var pos = 0.0
 var vel = 0.05
-
+var valor = 1
 
 func _ready():
 	pass
@@ -15,7 +15,7 @@ func _process(delta):
 	
 	if(vida <=0 and !$BugDeathSound.playing):
 		queue_free()
-		Global.moedas += 5
+		Global.moedas += valor
 		#$BugDeathSound.play()
 
 func hit(dano):
