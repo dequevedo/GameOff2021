@@ -13,6 +13,7 @@ data = PoolVector3Array( 0.0108, 0.0001, 0.8675, -0.382, 0.0001, 0.3651, -0.7082
 ]]
 
 [node name="CollisionShape" type="CollisionShape" parent="TowerArea/Ground" index="0"]
+visible = false
 shape = SubResource( 1 )
 
 [node name="Level_01" parent="." index="1" instance=ExtResource( 2 )]

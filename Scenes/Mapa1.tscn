@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Mapa1.gd" type="Script" id=1]
 [ext_resource path="res://UI/PauseMenu.tscn" type="PackedScene" id=3]
@@ -31,6 +31,25 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
+[sub_resource type="Environment" id=3]
+background_mode = 1
+background_color = Color( 0.662745, 0.780392, 0.4, 1 )
+background_energy = 0.0
+ambient_light_color = Color( 1, 1, 1, 1 )
+ambient_light_energy = 1.5
+fog_color = Color( 0, 0.490196, 1, 1 )
+fog_depth_begin = 94.3
+tonemap_mode = 3
+ssao_enabled = true
+ssao_radius = 10.0
+ssao_intensity = 15.0
+ssao_bias = 0.611
+ssao_blur = 1
+ssao_edge_sharpness = 2.0
+dof_blur_far_enabled = true
+dof_blur_far_distance = 429.66
+adjustment_enabled = true
+
 [node name="Mapa 1" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 0, 91.4 )
 script = ExtResource( 1 )
@@ -43,8 +62,9 @@ curve = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 28.3, 5.9, 5.5 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 1.7608e-09, 3.38246e-09, -3.63684e-09, 0.707107, 0.707107, -1.14669e-09, -0.707107, 0.707107, 37, 26.2, 15.7 )
-fov = 75.5384
+transform = Transform( 1, 1.7608e-09, 3.38247e-09, -3.69714e-09, 0.66497, 0.74687, -9.34147e-10, -0.74687, 0.66497, 37, 35.9161, 16.7264 )
+fov = 80.0
+far = 200.0
 
 [node name="SpawnTime" type="Timer" parent="."]
 wait_time = 0.5
@@ -110,6 +130,9 @@ stream = ExtResource( 5 )
 transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 31.1, 0, -34.6 )
 
 [node name="formigas" type="Node" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 3 )
 
 [connection signal="timeout" from="SpawnTime" to="." method="_on_SpawnTime_timeout"]
 [connection signal="timeout" from="Rodada" to="." method="_on_Rodada_timeout"]
