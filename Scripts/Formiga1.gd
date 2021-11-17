@@ -10,8 +10,11 @@ var range_radius = 1.3
 var bulet_dano = 1
 
 
+
+
+
 func _ready():
-	
+	set_range_radius(range_radius)
 	pass
 	
 func _physics_process(delta):
@@ -81,7 +84,7 @@ func _on_range_area_exited(area):
 
 func set_range_radius(radius):
 	
-	$range/Shape_range.shape.radius = radius
+	$range/CollisionShape.shape.set_radius(radius)
 	$range/Showed_range.radius = radius
 	range_radius = radius
 	pass

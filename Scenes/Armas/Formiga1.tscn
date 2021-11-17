@@ -3,13 +3,12 @@
 [ext_resource path="res://Scenes/Formigas/Ant_01.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Formiga1.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/upgrades.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/formiga1_collisionShape.gd" type="Script" id=4]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.15606, 0.0925019, 0.160398 )
 
-[sub_resource type="SphereShape" id=2]
-
-[sub_resource type="SpatialMaterial" id=3]
+[sub_resource type="SpatialMaterial" id=2]
 flags_transparent = true
 albedo_color = Color( 0.380392, 0.733333, 0.945098, 0.290196 )
 
@@ -41,18 +40,21 @@ shape = SubResource( 1 )
 
 [node name="range" type="Area" parent="."]
 
-[node name="Shape_range" type="CollisionShape" parent="range"]
-shape = SubResource( 2 )
-
 [node name="Showed_range" type="CSGCylinder" parent="range"]
 height = 0.01
-material = SubResource( 3 )
+material = SubResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="range"]
+script = ExtResource( 4 )
 
 [node name="upgrades" parent="." instance=ExtResource( 3 )]
 
 [connection signal="timeout" from="Shot" to="." method="_on_Shot_timeout"]
 [connection signal="area_entered" from="range" to="." method="_on_range_area_entered"]
 [connection signal="area_exited" from="range" to="." method="_on_range_area_exited"]
+[connection signal="button_down" from="upgrades/Button1" to="." method="_on_Button1_button_down"]
+[connection signal="button_down" from="upgrades/Button2" to="." method="_on_Button2_button_down"]
 
 [editable path="Spatial"]
 [editable path="Spatial/Formiga_01"]
+[editable path="upgrades"]
