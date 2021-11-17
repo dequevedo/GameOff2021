@@ -40,15 +40,12 @@ ambient_light_energy = 1.5
 fog_color = Color( 0, 0.490196, 1, 1 )
 fog_depth_begin = 94.3
 tonemap_mode = 3
-ssao_enabled = true
 ssao_radius = 10.0
 ssao_intensity = 15.0
 ssao_bias = 0.611
 ssao_blur = 1
 ssao_edge_sharpness = 2.0
-dof_blur_far_enabled = true
 dof_blur_far_distance = 429.66
-adjustment_enabled = true
 
 [node name="Mapa 1" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 0, 91.4 )
