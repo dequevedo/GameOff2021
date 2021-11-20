@@ -34,7 +34,7 @@ tracks/0/keys = {
 
 [sub_resource type="Environment" id=3]
 background_mode = 1
-background_color = Color( 0.662745, 0.780392, 0.4, 1 )
+background_color = Color( 0.278431, 0.305882, 0.0745098, 1 )
 background_energy = 0.0
 ambient_light_color = Color( 1, 1, 1, 1 )
 ambient_light_energy = 1.5
