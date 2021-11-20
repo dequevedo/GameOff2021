@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Texturas/Plastic 007/Plastic007_1K_Displacement.jpg" type="Texture" id=1]
 [ext_resource path="res://Scripts/Bug3.gd" type="Script" id=2]
 [ext_resource path="res://SFX/Bugs/Fire impact.tres" type="AudioStream" id=3]
+[ext_resource path="res://Models/Bug_01/Bug_01.tscn" type="PackedScene" id=4]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 1 )
@@ -16,12 +17,15 @@ transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
 script = ExtResource( 2 )
 
 [node name="CSGBox" type="CSGBox" parent="."]
+visible = false
 material = SubResource( 1 )
 
 [node name="Area" type="Area" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 shape = SubResource( 2 )
+
+[node name="Bug_01" parent="Area/CollisionShape" instance=ExtResource( 4 )]
 
 [node name="BugDeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )

@@ -47,6 +47,8 @@ ssao_bias = 0.611
 ssao_blur = 1
 ssao_edge_sharpness = 2.0
 dof_blur_far_distance = 429.66
+glow_enabled = true
+glow_bloom = 0.1
 
 [sub_resource type="BoxShape" id=4]
 extents = Vector3( 9.4, 4.7, 17.4 )
