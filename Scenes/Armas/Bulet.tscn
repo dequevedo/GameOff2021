@@ -25,5 +25,4 @@ shape = SubResource( 2 )
 
 [node name="AntShootSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-volume_db = -15.0
 autoplay = true

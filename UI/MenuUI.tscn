@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://UI/Fonts/Bubblegum_Sans/BubblegumDynamic.tres" type="DynamicFont" id=1]
 [ext_resource path="res://UI/ButtonUI.tscn" type="PackedScene" id=2]
@@ -8,8 +8,11 @@
 [ext_resource path="res://UI/Sprites/Footer.png" type="Texture" id=6]
 [ext_resource path="res://UI/Fonts/Gluten/GlutonDynamic.tres" type="DynamicFont" id=7]
 [ext_resource path="res://UI/Fonts/Gluten/static/Gluten-Regular.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://UI/OptionsPanel.gd" type="Script" id=9]
+[ext_resource path="res://UI/Sprites/Slider.png" type="Texture" id=11]
+[ext_resource path="res://UI/Sprites/Slider/GrabberSlider.tres" type="StyleBox" id=12]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 24
 use_mipmaps = true
 use_filter = true
@@ -34,10 +37,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.137255, 0.00784314, 0.027451, 0.741176 )
+[node name="Logo" type="Label" parent="."]
+margin_left = 835.124
+margin_top = 413.185
+margin_right = 1699.12
+margin_bottom = 683.185
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 0.721569, 0, 1 )
+text = "Ant Bugs"
+valign = 1
+uppercase = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -60,6 +69,9 @@ margin_left = -174.5
 margin_top = 59.0
 margin_right = 175.5
 margin_bottom = 159.0
+
+[node name="Text" parent="buttons/StartButton" index="0"]
+custom_colors/font_color = Color( 0.137255, 0.00784314, 0.027451, 1 )
 
 [node name="Oh-yeah" type="AudioStreamPlayer" parent="buttons/StartButton"]
 stream = ExtResource( 4 )
@@ -106,16 +118,89 @@ margin_bottom = 200.0
 [node name="Text" parent="buttons/ExitButton" index="0"]
 text = "Sair"
 
-[node name="Logo" type="Label" parent="."]
-margin_left = 840.164
-margin_top = 183.879
-margin_right = 1704.16
-margin_bottom = 453.879
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color = Color( 1, 0.721569, 0, 1 )
-text = "Ant Bugs"
+[node name="OptionsPanel" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 103.0
+margin_bottom = -96.0
+color = Color( 0.713726, 0.454902, 0.0392157, 0.956863 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="div" type="ColorRect" parent="OptionsPanel"]
+margin_left = 471.0
+margin_top = 76.0
+margin_right = 476.0
+margin_bottom = 738.0
+color = Color( 0.137255, 0.00784314, 0.027451, 0.588235 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VolumeControl" type="Control" parent="OptionsPanel"]
+anchor_right = 1.0
+margin_top = 107.0
+margin_bottom = 202.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GeneralVolumeSlider" type="HSlider" parent="OptionsPanel/VolumeControl"]
+anchor_right = 1.0
+margin_left = 563.675
+margin_top = 8.62158
+margin_right = -301.325
+margin_bottom = 97.6216
+size_flags_horizontal = 0
+size_flags_stretch_ratio = 0.0
+custom_icons/grabber_disabled = ExtResource( 11 )
+custom_icons/grabber_highlight = ExtResource( 11 )
+custom_icons/grabber = ExtResource( 11 )
+custom_styles/grabber_area_highlight = ExtResource( 12 )
+custom_styles/grabber_area = ExtResource( 12 )
+min_value = -35.0
+max_value = 6.0
+value = 6.0
+rounded = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VolumePercentLabel" type="Label" parent="OptionsPanel/VolumeControl"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 686.271
+margin_top = -20.5
+margin_right = 819.271
+margin_bottom = 46.5
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.137255, 0.00784314, 0.027451, 1 )
+text = "100"
+align = 1
 valign = 1
-uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VolumeLabel" type="Label" parent="OptionsPanel/VolumeControl"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -866.501
+margin_top = -31.3102
+margin_right = -557.501
+margin_bottom = 40.6898
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.137255, 0.00784314, 0.027451, 1 )
+text = "Volume Geral"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -129,18 +214,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Header"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -960.0
-margin_top = -48.5
-margin_right = 960.0
-margin_bottom = 48.5
-custom_fonts/font = ExtResource( 7 )
+[node name="Label2" type="Label" parent="Header"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.713726, 0.454902, 0.0392157, 1 )
-text = "Menu Principal"
+text = "Projetado e desenvolvido por Daniel Quevedo, Michael Vivaldini e Tacio Nascimento"
 align = 1
 valign = 1
 __meta__ = {
@@ -157,12 +236,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="CancelOptionsButton" parent="Footer" instance=ExtResource( 2 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 575.663
+margin_top = -44.4644
+margin_right = 925.663
+margin_bottom = 55.5356
+
+[node name="Text" parent="Footer/CancelOptionsButton" index="0"]
+margin_left = -102.0
+margin_top = -38.0
+margin_right = 104.0
+margin_bottom = 39.0
+text = "OK"
+
 [node name="Label" type="Label" parent="Footer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_fonts/font = SubResource( 1 )
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -50.5
+margin_right = 464.0
+margin_bottom = 50.5
+custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0.713726, 0.454902, 0.0392157, 1 )
-text = "Projetado e desenvolvido por Daniel Quevedo, Michael Vivaldini e Tacio Nascimento"
+text = "Opções"
 align = 1
 valign = 1
 __meta__ = {
@@ -171,7 +270,12 @@ __meta__ = {
 
 [connection signal="pressed" from="buttons/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="finished" from="buttons/StartButton/Oh-yeah" to="." method="_on_Ohyeah_finished"]
+[connection signal="pressed" from="buttons/OptionsButton" to="." method="_on_OptionsButton_pressed"]
+[connection signal="value_changed" from="OptionsPanel/VolumeControl/GeneralVolumeSlider" to="OptionsPanel" method="_on_GeneralVolumeSlider_value_changed"]
+[connection signal="pressed" from="Footer/CancelOptionsButton" to="OptionsPanel" method="_on_CancelOptionsButton_pressed"]
 
+[editable path="buttons/StartButton"]
 [editable path="buttons/OptionsButton"]
 [editable path="buttons/CreditsButton"]
 [editable path="buttons/ExitButton"]
+[editable path="Footer/CancelOptionsButton"]

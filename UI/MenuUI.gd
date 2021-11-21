@@ -23,3 +23,8 @@ func _on_StartButton_pressed():
 func _on_Ohyeah_finished():
 	get_tree().change_scene("res://Scenes/Mapa1.tscn")
 	pass # Replace with function body.
+
+
+func _on_OptionsButton_pressed():
+	$OptionsPanel.visible = true
+	pass # Replace with function body.

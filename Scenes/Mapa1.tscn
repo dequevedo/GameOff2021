@@ -88,6 +88,9 @@ anims/sumir = SubResource( 2 )
 
 [node name="Store" parent="Interface" instance=ExtResource( 8 )]
 
+[node name="SaldoLabel" parent="Interface/Store" index="2"]
+script = ExtResource( 2 )
+
 [node name="PauseMenu" parent="Interface" instance=ExtResource( 3 )]
 pause_mode = 2
 
@@ -129,16 +132,6 @@ stream = ExtResource( 4 )
 [node name="MissionCompletedAudio" type="AudioStreamPlayer" parent="Interface"]
 stream = ExtResource( 5 )
 
-[node name="Moedas" type="Label" parent="Interface"]
-margin_left = 1786.0
-margin_top = 48.0
-margin_right = 1895.0
-margin_bottom = 98.0
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Level_01_Tower_Area" parent="." instance=ExtResource( 9 )]
 transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 31.1, 0, -34.6 )
 
@@ -157,7 +150,6 @@ shape = SubResource( 4 )
 [connection signal="timeout" from="SpawnTime" to="." method="_on_SpawnTime_timeout"]
 [connection signal="timeout" from="Rodada" to="." method="_on_Rodada_timeout"]
 [connection signal="pressed" from="Interface/Store/Button_formiga_1" to="." method="_on_Button_formiga_1_pressed"]
-[connection signal="pressed" from="Interface/Store/Button_formiga_1" to="Interface/Store/Button_formiga_1" method="_on_Button_formiga_1_pressed"]
 [connection signal="pressed" from="Interface/FinishOverlay/Button" to="." method="_on_Button_pressed"]
 [connection signal="finished" from="Interface/RoundAudio" to="." method="_on_RoundAudio_finished"]
 [connection signal="area_entered" from="Goal" to="." method="_on_Goal_area_entered"]
