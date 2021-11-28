@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Models/Formiga_01/Formiga_01.glb" type="PackedScene" id=1]
 [ext_resource path="res://Models/Level_01/Level_01.glb" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Mapas/Level_01_Tower_Area.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Models/Formiga_01/OlhoMat.material" type="Material" id=4]
+[ext_resource path="res://Models/Formiga_02/Formiga_02.glb" type="PackedScene" id=5]
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
@@ -61,4 +62,11 @@ depth = 9.04965
 [node name="Level_01_Tower_Area" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.28645, 0.646152, 1.10373 )
 
+[node name="Formiga_02" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -89.4706, 36.2328, -18.025 )
+
+[node name="AnimationPlayer" parent="Formiga_02" index="3"]
+autoplay = "ArmatureAction"
+
 [editable path="Formiga_01"]
+[editable path="Formiga_02"]
